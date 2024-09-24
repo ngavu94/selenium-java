@@ -21,7 +21,7 @@ public class Topic_21_ImplicitWait_Exercise {
         driver=new ChromeDriver();
 
         driver.manage().window().maximize();
-        driver.get("https://facebook.com");
+        //driver.get("https://facebook.com");
     }
     @Test //
     public  void TC_01_Equal_5s(){
@@ -50,4 +50,5 @@ public class Topic_21_ImplicitWait_Exercise {
         implicitWait.until(ExpectedConditions.visibilityOfElementLocated(resultMessage));
         Assert.assertTrue(driver.findElement(resultMessage).isDisplayed());
     }
+
 }
