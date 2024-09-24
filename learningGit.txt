@@ -1,4 +1,5 @@
 Thay đổi dòng 1
+Thêm dòng 2
 {
     "success": true,
     "message": "OK",
