@@ -62,7 +62,32 @@ public class Topic_22_Wait_05_Implicit_01_Knowledge {
                 ExpectedConditions.visibilityOfElementLocated(By.cssSelector("")), ExpectedConditions.elementToBeClickable(By.cssSelector(""))
         ));
 
-        emplicitWait.until(ExpectedConditions.attributeContains(driver.findElement(By.cssSelector("")),"",""));
+        // Chờ cho element có 1 attribute có giá trị đúng như mong đợi
+        emplicitWait.until(ExpectedConditions.attributeContains(driver.findElement(By.cssSelector("input@email")),"value","abc@gmail.com"));
+
+        // Chờ 1 element có attribute khác null
+        emplicitWait.until(ExpectedConditions.attributeToBeNotEmpty(driver.findElement(By.cssSelector("input#email")),"abc@gmail.com"));
+
+        //
+        emplicitWait.until(ExpectedConditions.elementToBeSelected(driver.findElement(By.cssSelector(""))));
+
+        // Tìm hiểu thêm tất cả các hàm của ExpectedConditions
+
+        //Chờ 1 đọoạn code js cần trả về dữ liệu
+        emplicitWait.until(ExpectedConditions.jsReturnsValue("document.getElementsByName"));
+
+        //Chờ 1 đoạn code JS được thực thi ko ném ra ngoại lệ nào
+        //Ko ném ra: True
+        // Có ngoại lệ: False
+        emplicitWait.until(ExpectedConditions.javaScriptThrowsNoExceptions("document.documentElement.innerText"));
+
+        //CHờ số lượng element = 1 con số cố định
+        emplicitWait.until(ExpectedConditions.numberOfElementsToBe(By.cssSelector("select#123 option"),15));
+        emplicitWait.until(ExpectedConditions.numberOfElementsToBeLessThan(By.cssSelector("select#123 option"),15));
+        emplicitWait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.cssSelector("select#123 option"),15));
+
+        //Chờ cho window/tab là bao nhiều
+        emplicitWait.until(ExpectedConditions.numberOfWindowsToBe(2));
 
     }
 
