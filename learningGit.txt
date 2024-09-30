@@ -1,5 +1,4 @@
-Thay đổi dòng 1
-Thêm dòng 2
+Thay đổi ngày 25/09
 {
     "success": true,
     "message": "OK",
