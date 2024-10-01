@@ -18,13 +18,13 @@ public class Topic_24_Emplicit_WaitExercise2 {
     WebDriver driver;
     WebDriverWait explicitWait ;
     String projectPath = System.getProperty("user.dir");
-    String image1 = "WIN_20230614_10_33_01_Pro.jpg";
-    String image2 ="WIN_20230614_10_33_28_Pro.jpg";
+    String image1 = "image01.png";
+    String image2 ="image02.png";
+    String image3 ="image03.png";
     //String image3 ="image03.png";
 
-    String image01Path = projectPath+ File.separator+"uploadFiles"+File.separator+image1;
+    String image01Path = projectPath+File.separator+"uploadFiles"+File.separator+image1;
     String image02Path = projectPath+File.separator+"uploadFiles"+File.separator+image2;
-   // String image03Path = projectPath+File.separator+"uploadFiles"+File.separator+image3;
 
     @BeforeClass
     public void BeforeClass(){
@@ -51,7 +51,7 @@ public class Topic_24_Emplicit_WaitExercise2 {
 
     }
     @Test
-    public void TC_02_UploadFile(){
+    public void TC_07_UploadFile_ExplicitWait(){
         driver.get("https://gofile.io/welcome");
         //Verify text trước khi chọn ngày
         //wait + verify spinner icon biến mất
@@ -59,10 +59,32 @@ public class Topic_24_Emplicit_WaitExercise2 {
         //Wait + click button Upload file
         driver.findElement(By.cssSelector("a.ajaxLink>button")).click();
         //Wait + click button Add file
-        explicitWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div#filesUpload button"))).click();
 
+        explicitWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div#filesUpload button"))).click();
+// Upload file
         driver.findElement(By.cssSelector("input[type='file']")).sendKeys(image01Path);
 
+// Chờ loading = 100% span.text-success
+        explicitWait.until(ExpectedConditions.invisibilityOfElementWithText(By.cssSelector("span.text-success"),"100%"));
+        ////a[contains(text(),'https://gofile.io/')]  click link
+        driver.findElement(By.xpath("a[contains(text(),'https://gofile.io/')]")).click();
+    }
+    public void TC_08_FluentWait(){
+        driver.get("https://automationfc.github.io/fluent-wait/");
+        //Verify text trước khi chọn ngày
+        //wait + verify spinner icon biến mất
+        Assert.assertTrue(explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.spinner-border"))));
+        //Wait + click button Upload file
+        driver.findElement(By.cssSelector("a.ajaxLink>button")).click();
+        //Wait + click button Add file
 
+        explicitWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div#filesUpload button"))).click();
+// Upload file
+        driver.findElement(By.cssSelector("input[type='file']")).sendKeys(image01Path);
+
+// Chờ loading = 100% span.text-success
+        explicitWait.until(ExpectedConditions.invisibilityOfElementWithText(By.cssSelector("span.text-success"),"100%"));
+        ////a[contains(text(),'https://gofile.io/')]  click link
+        driver.findElement(By.xpath("a[contains(text(),'https://gofile.io/')]")).click();
     }
 }
