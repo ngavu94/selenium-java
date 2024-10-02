@@ -2,7 +2,6 @@ package webdriver;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -12,9 +11,8 @@ import org.testng.annotations.Test;
 
 import java.io.File;
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
-public class Topic_24_Emplicit_WaitExercise2 {
+public class Topic_24_Explicit_WaitExercise2 {
     WebDriver driver;
     WebDriverWait explicitWait ;
     String projectPath = System.getProperty("user.dir");

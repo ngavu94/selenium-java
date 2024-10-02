@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class Topic_23_Explicit_Wait_Exercise {
+public class Topic_23_Implicit_Wait_Exercise {
     WebDriver driver;
     WebDriverWait explicitWait;
     Topic_08_Date date;
