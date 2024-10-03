@@ -71,7 +71,7 @@ public class Topic_18_UploadFile {
     public void TC_02_Upload_File_By_AutoIT(){
         driver.get("https://blueimp.github.io/jQuery-File-Upload/");
 
-//        WinWaitActive("File Upload")
+//        WinWaitActive("File Upload")4
 //        Send("D:\SoftwareTestingMaterial\UploadFile.txt")
 //        Send("{ENTER}")
 
